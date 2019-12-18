@@ -10,4 +10,4 @@ g++ -g main.cpp panel.cpp os_info.cpp -o main `pkg-config gtkmm-3.0 --cflags --l
   
 Displays a simple GUI that shows disk space remaining for a dual-booted computer  
   
-<img src="https://github.com/Andrew-Gan/os-widget/img/widget.png">
+<img src="https://github.com/Andrew-Gan/os-widget/blob/master/img/widget.png">
