@@ -9,18 +9,13 @@ OS_info::~OS_info() {}
 
 void OS_info::update(const char* path) {
     // update info
-    sysinfo(&sys_info);
     statvfs(path, &vfs_info);
-    ram_free = sys_info.freeram;
-    ram_total = sys_info.totalram;
     disk_free = vfs_info.f_bavail * vfs_info.f_bsize;
     disk_total = vfs_info.f_blocks * vfs_info.f_bsize;
 }
 
 long OS_info::get_info(int arg) {
     switch(arg) {
-        case 0 : return ram_free;
-        case 1 : return ram_total;
         case 2 : return disk_free;
         case 3 : return disk_total;
     }

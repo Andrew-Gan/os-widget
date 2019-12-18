@@ -12,12 +12,11 @@ using namespace std;
 
 class OS_info {
 private:
-    struct sysinfo sys_info;
     struct statvfs vfs_info;
     string path = "NULL";
     string name = "NULL";
     string distr = "NULL";
-    unsigned long ram_free = 0, ram_total = 0, disk_free = 0, disk_total = 0;
+    unsigned long disk_free = 0, disk_total = 0;
 public:
     OS_info(string, string);
     virtual ~OS_info();
