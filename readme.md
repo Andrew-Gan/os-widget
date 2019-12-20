@@ -4,9 +4,13 @@ Software tools:
 Visual Studio Code  
 G++ 7.4 Compiler  
 gtkmm (C++ wrapper for gtk)  
+
+Dependencies:  
+[GTKMM Download](https://www.gtkmm.org/en/download.html)  
+`apt-get install libgtkmm-3.0-dev`  
   
 Compile Instruction:  
-Use the 'make execute' command    
+Use the 'make' command    
   
 Displays a simple GUI that shows disk space remaining for a dual-booted computer  
   
