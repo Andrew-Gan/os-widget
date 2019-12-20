@@ -1,5 +1,10 @@
 # OS-widget
 
+Displays a simple GUI that shows disk space remaining for a dual-booted computer  
+  
+<img src="https://github.com/Andrew-Gan/os-widget/blob/master/img/widget.png">
+
+
 ## Software tools:  
 * Visual Studio Code  
 * G++ 7.4 Compiler  
@@ -20,9 +25,7 @@ yum install gtkmm30-docs
 make
 ```
   
-Displays a simple GUI that shows disk space remaining for a dual-booted computer  
-  
-<img src="https://github.com/Andrew-Gan/os-widget/blob/master/img/widget.png">
+
   
 Tutorials / References consulted:  
 * [GTK3 Tutorial](https://developer.gnome.org/gtk3/stable/gtk-getting-started.html)  
