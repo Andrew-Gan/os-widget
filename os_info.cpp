@@ -1,6 +1,8 @@
 #include "os_info.h"
 
-OS_info::OS_info(string osname, string osdistr) {
+OS_info::OS_info() {}
+
+void OS_info::init(string osname, string osdistr) {
     name = osname;
     distr = osdistr;
 }

@@ -24,6 +24,7 @@ private:
     Glib::RefPtr<Gtk::CssProvider> cssProvider = Gtk::CssProvider::create();
     Gtk::Frame frame_disk_win, frame_disk_lin;
     Gtk::Button but_win, but_lin;
+    OS_info info_win, info_lin;
 };
 
 #endif

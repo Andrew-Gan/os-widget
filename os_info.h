@@ -18,8 +18,9 @@ private:
     string distr = "NULL";
     unsigned long disk_free = 0, disk_total = 0;
 public:
-    OS_info(string, string);
+    OS_info();
     virtual ~OS_info();
+    void init(string, string);
     void update(const char*);
     long get_info(int);
     ostringstream return_info(int);

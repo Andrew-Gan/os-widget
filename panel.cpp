@@ -1,4 +1,5 @@
 #include "panel.h"
+#include <iostream>
 
 using namespace std;
 
@@ -71,6 +72,14 @@ MainPanel::MainPanel() : box(Gtk::ORIENTATION_HORIZONTAL), box_win(Gtk::ORIENTAT
     but_lin.signal_clicked().connect(sigc::mem_fun(*this, &MainPanel::but_lin_event));
 
     // initialize information
+    struct utsname utsname_info;
+    uname(&utsname_info);
+    info_lin.init(utsname_info.sysname, utsname_info.release);
+    info_win.init("Windows 10", "Version 1909");
+    textbuff_win->set_text(info_win.return_info(1).str());
+    view_win.set_buffer(textbuff_win);
+    textbuff_lin->set_text(info_lin.return_info(1).str());
+    view_lin.set_buffer(textbuff_lin);
     updateInfo();
 
     // include CSS
@@ -89,16 +98,6 @@ MainPanel::MainPanel() : box(Gtk::ORIENTATION_HORIZONTAL), box_win(Gtk::ORIENTAT
 MainPanel::~MainPanel() {}
 
 bool MainPanel::updateInfo() {
-    // obtain OS descriptive info
-    struct utsname utsname_info;
-    uname(&utsname_info);
-    OS_info info_lin(utsname_info.sysname, utsname_info.release);
-    OS_info info_win("Windows 10", "Version 1909");
-    textbuff_win->set_text(info_win.return_info(1).str());
-    view_win.set_buffer(textbuff_win);
-    textbuff_lin->set_text(info_lin.return_info(1).str());
-    view_lin.set_buffer(textbuff_lin);
-
     // retrieve disk space info
     info_lin.update("/");
     info_win.update("/media/andrew-gan/Acer");
