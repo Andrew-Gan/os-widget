@@ -1,5 +1,4 @@
 #include "panel.h"
-#include <iostream>
 
 using namespace std;
 
@@ -10,7 +9,7 @@ MainPanel::MainPanel() : box(Gtk::ORIENTATION_HORIZONTAL), box_win(Gtk::ORIENTAT
     set_default_size(500, 200);
     set_resizable(false);
 
-    // init box_
+    // init box
     box.pack_start(box_win, Gtk::PACK_EXPAND_PADDING);
     box.pack_start(sep, Gtk::PACK_EXPAND_PADDING);
     box.pack_start(box_lin, Gtk::PACK_EXPAND_PADDING);
@@ -86,16 +85,21 @@ MainPanel::MainPanel() : box(Gtk::ORIENTATION_HORIZONTAL), box_win(Gtk::ORIENTAT
     cssProvider->load_from_path("theme.css");
     Gtk::StyleContext::add_provider_for_screen(Gdk::Screen::get_default(), cssProvider, GTK_STYLE_PROVIDER_PRIORITY_USER);
 
-    // create slot
+    // create and connect update event slot
     int timeout = 5000; // apx. 5s
     sigc::slot<bool>my_slot = sigc::mem_fun(*this, &MainPanel::updateInfo);
-
-    // connect slot
     Glib::signal_timeout().connect(my_slot, timeout);
+
+    // init scrollwindow
+    scroll_progList.set_size_request(500, 200);
+    scroll_progList.show_all_children();
+    Gtk::Button button;
+
     show_all_children();
 }
 
-MainPanel::~MainPanel() {}
+MainPanel::~MainPanel() {
+}
 
 bool MainPanel::updateInfo() {
     // retrieve disk space info
