@@ -2,7 +2,7 @@
 
 Displays a simple GUI that shows disk space remaining for a dual-booted/single-booted computer  
   
-<img src="https://github.com/Andrew-Gan/os-widget/blob/master/img/widget.png">
+<img src="img/widget.png">
 
 
 ## Software tools:  
